@@ -1,9 +1,17 @@
 import axios from 'axios';
 
-// In production (Vercel), use VITE_API_URL environment variable
-// In development, use the Vite proxy (/api → localhost:5000)
+// In production (Vercel), use VITE_API_URL environment variable.
+// Automatically formats the baseURL so requests like /auth/signup or /api/auth/signup resolve cleanly.
+const getBaseURL = () => {
+    let url = import.meta.env.VITE_API_URL;
+    if (!url) return '/api';
+    // Remove trailing slashes
+    url = url.replace(/\/+$/, '');
+    return url;
+};
+
 const API = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || '/api',
+    baseURL: getBaseURL(),
 });
 
 // Interceptor to add Authorization Bearer token
