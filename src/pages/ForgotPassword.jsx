@@ -93,7 +93,7 @@ const ForgotPassword = () => {
                 </div>
 
                 <div className="footer">
-                    &copy; 2025 Money Manager <br /> Developed by Hadiya Kishor and Prajapati Shanikumar
+                    &copy; 2025 Money Manager <br /> Developed by Hadiya Kishor
                 </div>
             </div>
         </div>
